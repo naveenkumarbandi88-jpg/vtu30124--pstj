@@ -1,0 +1,45 @@
+import java.util.ArrayList;
+
+public class GFG {
+
+    // Function to search for all occurrences of 'pat' in 'txt' using Naive Approach
+    static ArrayList<Integer> search(String pat, String txt)
+    {
+        // Length of the pattern
+        int m = pat.length();
+
+    
+        int n = txt.length();
+
+        ArrayList<Integer> ans = new ArrayList<>()
+        for (int i = 0; i <= n - m; i++)
+        {
+            int j;
+            for (j = 0; j < m; j++)
+            {
+                if (txt.charAt(i + j) != pat.charAt(j))
+                    break;
+            }
+            if (j == m)
+                ans.add(i);
+        }
+
+        return ans;
+    }
+
+    public static void main(String[] args)
+    {
+        String txt = "aabaacaadaabaaba";
+        String pat = "aaba";
+
+        ArrayList<Integer> res = search(pat, txt);
+
+        for (int it : res)
+        {
+            System.out.print(it + " ");
+        }
+    }
+}
+
+Output
+0 9 12 
